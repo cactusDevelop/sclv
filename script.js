@@ -56,6 +56,7 @@ window.addEventListener("scroll", function(){
 // LOADING
 imgGold.addEventListener('load', () => {
     loadingText.style.opacity = '0';
+    loadingText.style.display = 'none';
     imgGold.style.opacity = '1';
 });
 videoHero.addEventListener('canplay', () => {

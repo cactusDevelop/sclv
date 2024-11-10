@@ -76,7 +76,7 @@ img{
 
 /* HEADER */
 header{
-    width: 100%;
+    width: auto;
     height: var(--header-height);
     margin-bottom: 3rem;
     background-image: linear-gradient(rgba(9,0,77,0.5),rgba(9,0,77,0.3));
@@ -89,6 +89,7 @@ header{
     align-items: center;
     justify-content: center;
     transition: 0.5s;
+    overflow: hidden;
 }
 header.sticky{
     padding-top: 0.5rem;
@@ -104,7 +105,7 @@ nav{
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: var(--nav-height);
     display: flex;
     align-items: center;
@@ -243,8 +244,8 @@ body.dark .dark-light img.moon{
     z-index: -1;
 }
 .searchbox .search-field input{
-    height: 100%;
-    width: 100%;
+    height: auto;
+    width: auto;
     padding: 0 2.813rem 0 0.938rem;
     outline: none;
     border: none;
@@ -291,6 +292,16 @@ body.dark .dark-light img.moon{
     object-fit: cover;
     transition: opacity 1s ease;
 }
+.hero .loading-text {
+    position: absolute;
+    font-size: 8rem;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    display: inline-block;
+    z-index: 10;
+    pointer-events: none;
+}
 .hero h1 .sparkles{
     position: absolute;
 }
@@ -303,15 +314,6 @@ body.dark .dark-light img.moon{
     opacity: 0;
     transition: opacity 1s ease;
     display: none;
-}
-.loading-text {
-    position: absolute;
-    font-size: 8rem;
-    color: white;
-    opacity: 1;
-    transition: opacity 0.5s ease;
-    display: inline-block;
-    z-index: 10;
 }
 .phoenix {
     display: flex;
@@ -453,7 +455,7 @@ section .wave.wave5{
         position: fixed;
         height: 100%;
         width: 20rem;
-        left: -100%;
+        left: -150%;
         top: 0; 
         background-color: var(--search-text);
         z-index: 2;
