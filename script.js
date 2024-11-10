@@ -58,7 +58,7 @@ imgGold.addEventListener('load', () => {
     loadingText.style.opacity = '0';
     imgGold.style.opacity = '1';
 });
-videoHero.addEventListener('canplaythrough', () => {
+videoHero.addEventListener('loadeddata', () => {
     loadingText.style.opacity = '0';
     videoHero.style.display = 'block';
     videoHero.style.opacity = '1';
