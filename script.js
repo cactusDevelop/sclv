@@ -6,7 +6,7 @@ const body = document.querySelector("body"),
       sidebarClose = document.querySelector(".sidebar-close"),
       imgGold = document.querySelector('.gold'),
       loadingText = document.querySelector('.loading-text'),
-      video = document.querySelector('.hero-video');
+      videoHero = document.querySelector('.hero-video');
 
 let getMode = localStorage.getItem("mode");
 
@@ -58,10 +58,10 @@ imgGold.addEventListener('load', () => {
     loadingText.style.opacity = '0';
     imgGold.style.opacity = '1';
 });
-video.addEventListener('canplaythrough', () => {
+videoHero.addEventListener('canplaythrough', () => {
     loadingText.style.opacity = '0';
-    video.style.display = 'block';
-    video.style.opacity = '1';
+    videoHero.style.display = 'block';
+    videoHero.style.opacity = '1';
 });
 
 
