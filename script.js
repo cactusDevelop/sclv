@@ -5,7 +5,8 @@ const body = document.querySelector("body"),
       sidebarOpen = document.querySelector(".sidebar-open"),
       sidebarClose = document.querySelector(".sidebar-close"),
       imgGold = document.querySelector('.gold'),
-      loadingText = document.querySelector('.loading-text');
+      loadingText = document.querySelector('.loading-text'),
+      video = document.querySelector('.hero-video');
 
 let getMode = localStorage.getItem("mode");
 
@@ -57,16 +58,10 @@ imgGold.addEventListener('load', () => {
     loadingText.style.opacity = '0';
     imgGold.style.opacity = '1';
 });
-const video = document.querySelector('.hero-video');
-
-video.addEventListener('loadeddata', () => {
-  loadingText.style.opacity = '0';
-  video.style.display = 'block';
-  video.style.opacity = '1';
-});
-
-video.addEventListener('error', () => {
-  loadingText.style.opacity = '0'; // Cache le texte de chargement sans afficher la vidéo
+video.addEventListener('canplaythrough', () => {
+    loadingText.style.opacity = '0';
+    video.style.display = 'block';
+    video.style.opacity = '1';
 });
 
 
