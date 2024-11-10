@@ -287,7 +287,6 @@ body.dark .dark-light img.moon{
     height: 1em;
     width: auto;
     margin-bottom: 1rem;
-    color: white;
     opacity: 0;
     object-fit: cover;
     transition: opacity 1s ease;
@@ -308,7 +307,7 @@ body.dark .dark-light img.moon{
 .loading-text {
     position: absolute;
     font-size: 8rem;
-    color: var(--text-color);
+    color: white;
     opacity: 1;
     transition: opacity 0.5s ease;
     display: inline-block;
