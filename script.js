@@ -59,7 +59,7 @@ imgGold.addEventListener('load', () => {
 });
 const video = document.querySelector('.hero-video');
 
-video.addEventListener('canplaythrough', () => {
+video.addEventListener('loadeddata', () => {
   loadingText.style.opacity = '0';
   video.style.display = 'block';
   video.style.opacity = '1';
