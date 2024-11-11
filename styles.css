@@ -24,10 +24,11 @@ body.dark {
     --text-color: #eee;
     --search-bar: #242526;
 }
-body.dark section .wave{
+body.dark .waves .wave{
     background: url(assets/black-wave.png);
 }
 
+/* GENERAL */
 :root{
     /*Colors*/
     --main-color: #FF6423;
@@ -39,6 +40,7 @@ body.dark section .wave{
 
     /*Responsive*/
     --header-height: 100vh;
+    --wave-position: 108vh;
     --nav-height: 15vh;
     --wave-height: 5rem;
     --wave-width: 1280px;
@@ -57,8 +59,9 @@ body.dark section .wave{
     --wing-translateX: clamp(0rem, 15vw, 6rem);
     --wing-translateY: clamp(-4rem, -10vw, 0rem);
     --wing-flap-time: 5s;
-}
 
+    --color-transition: 0.4s;
+}
 *{
     margin: 0;
     padding: 0;
@@ -66,8 +69,13 @@ body.dark section .wave{
     color: var(--text-color);
     box-sizing: border-box;
 }
-body{ 
+html{
+    height: -webkit-fill-available;
+}
+body{
+    height: -webkit-fill-available;
     background-color: var(--bg-color);
+    transition: background var(--color-transition) ease;
 }
 img{
     display: block;
@@ -98,9 +106,6 @@ header.sticky nav{
     background-color: var(--contrast-color);
     height: calc(0.7 * var(--nav-height));
 }
-header.sticky nav ul li a{
-    color: var(--text-color);
-}
 nav{
     position: fixed;
     top: 0;
@@ -113,8 +118,8 @@ nav{
     margin: 0 auto;
     padding: 0 5%;
     z-index: 20;
-    transition: 0.5s;
-    overflow: hidden;
+    transition: var(--color-transition);
+    overflow: visible; /* search-box */
 }
 nav .sidebar-open{
     width: 1.5rem;
@@ -290,7 +295,7 @@ body.dark .dark-light img.moon{
     margin-bottom: 1rem;
     opacity: 0;
     object-fit: cover;
-    transition: opacity 1s ease;
+    transition: opacity 0.5s ease;
 }
 .hero .loading-text {
     position: absolute;
@@ -312,7 +317,7 @@ body.dark .dark-light img.moon{
     z-index: -1;
     object-fit: cover;
     opacity: 0;
-    transition: opacity 1s ease;
+    transition: opacity 0.5s ease;
     display: none;
 }
 .phoenix {
@@ -362,15 +367,15 @@ body.dark .dark-light img.moon{
     }
 }
 /* WAVES */
-section{
+.waves{
     position: absolute;
     width: 100%;
-    height: 108vh;
+    height: var(--wave-position);
     overflow: hidden;
     top: 0;
     z-index: 5;
 }
-section .wave{
+.waves .wave{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -378,42 +383,49 @@ section .wave{
     height: var(--wave-height);
     background: url(assets/white-wave.png);
     background-size: var(--wave-width) var(--wave-height);
-    transition: 0.4s;
+    transition: var(--color-transition);
 }
-section .wave.wave1{
+.waves .wave.wave1{
     animation: animate1 30s linear infinite;
     z-index: 10;
     opacity: 1;
     animation-delay: 0s;
     bottom: 0;
 }
-section .wave.wave2{
+.waves .wave.wave2{
     animation: animate2 15s linear infinite;
     z-index: 9;
     opacity: 0.5;
     animation-delay: -5s;
     bottom: 0.65rem;
 }
-section .wave.wave3{
+.waves .wave.wave3{
     animation: animate1 20s linear infinite;
     z-index: 8;
     opacity: 0.3;
     animation-delay: -2s;
     bottom: 1rem;
 }
-section .wave.wave4{
+.waves .wave.wave4{
     animation: animate1 5s linear infinite;
     z-index: 7;
     opacity: 0.7;
     animation-delay: -5s;
     bottom: 1.5rem;
 }
-section .wave.wave5{
+.waves .wave.wave5{
     animation: animate2 8s linear infinite;
     z-index: 6;
     opacity: 0.7;
     animation-delay: -4s;
     bottom: 1.1rem;
+}
+.waves .wave.wave6{
+    animation: animate2 4s linear infinite;
+    z-index: 5;
+    opacity: 1;
+    animation-delay: 0s;
+    bottom: 0rem;
 }
 @keyframes animate1{
     0%{
@@ -451,6 +463,10 @@ section .wave.wave5{
     }
 }
 @media (max-width: 790px /*look at the critical point with the inspector*/){
+    :root{
+        --header-height: 96vh;
+        --wave-position: 102vh;
+    }
     .menu{
         position: fixed;
         height: 100%;
