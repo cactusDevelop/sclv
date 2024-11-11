@@ -22,7 +22,8 @@ body.dark {
     --contrast-color: #242526;
     --bg-color: #1a1f1b;
     --text-color: #eee;
-    --search-bar: #242526;
+    --search-bar1: #242526;
+    --search-bar2: #212223;
 }
 body.dark .waves .wave{
     background: url(assets/black-wave.png);
@@ -36,7 +37,8 @@ body.dark .waves .wave{
     --bg-color: #ffffff;
     --text-color: #111;
     --search-text: #010718;
-    --search-bar: #F2F2F2;
+    --search-bar1: #e5eaf0;
+    --search-bar2: #d8e0eb;
 
     /*Responsive*/
     --header-height: 100vh;
@@ -224,8 +226,9 @@ body.dark .dark-light img.moon{
     width: 18.75rem;
     display: flex;
     align-items: center;
-    background-color: var(--contrast-color);
-    padding: 3px;
+    justify-content: space-between;
+    background-color: var(--search-bar1);
+    padding: 8px;
     border-radius: 0.375rem;
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
     opacity: 0;
@@ -244,27 +247,28 @@ body.dark .dark-light img.moon{
     top: -0.25rem;
     height: 0.75rem;
     width: 0.75rem;
-    background-color: var(--contrast-color);
+    background-color: var(--search-bar2);
     transform: rotate(-45deg);
     z-index: -1;
 }
 .searchbox .search-field input{
     height: auto;
     width: auto;
-    padding: 0 2.813rem 0 0.938rem;
+    flex: 1;
+    padding: 0.3rem 0.5rem;
     outline: none;
     border: none;
     border-radius: 0.25rem;
     font-size: 0.875rem;
     font-weight: 400;
     color: var(--search-text);
-    background-color: var(--search-bar);
+    background-color: var(--search-bar2);
 }
 .searchbox .search-field img{
-    position: absolute;
-    right: 0.938rem;
+    position: relative;
     height: 1.375rem;
     width: 1.375rem;
+    margin: 0 0.5rem;
     cursor: pointer;
 }
 /* HERO SECTION */
@@ -447,6 +451,48 @@ body.dark .dark-light img.moon{
 /* MAIN PAGE */
 .main-page{
     min-height: 100vh;
+}
+.blog{
+    height: 50vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 10vw;
+    margin-block: 5rem;
+}
+.blog .blog-txt{
+    max-width: 40vw;
+}
+.blog .blog-txt h2{
+    font: 2rem montserrat;
+}
+.blog .players{
+    width: 40vw;
+    height: 100%;
+    position: relative;
+    overflow: visible;
+}
+.blog .players img{
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+}
+.blog .players .alex{
+    height: 15rem;
+    top: 0;
+    left: 15%;
+}
+.blog .players .david{
+    height: 15rem;
+    bottom: 0;
+    right: 0;
+}
+.blog .players:hover .alex{
+    top: -10%;
+    left: 13%;
+}.blog .players:hover .david{
+    bottom: -2%;
+    right: 2%;
 }
 
 /* RESPONSIVENESS */
