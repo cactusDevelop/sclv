@@ -581,17 +581,17 @@ body.dark .dark-light img.moon{
         right: 0;
     }
     .blog .players .alex{
-        bottom: 25%;
-        right: 40%;
+        bottom: 30%;
+        right: 0%;
         z-index: 1;
     }
     .blog .players .david{
         bottom: 20%;
-        right: 0;
+        right: -5%;
         z-index: 2;
     }
     .blog .players:hover .alex{
-        transform: translate(-0.7rem, -1.3rem);
+        transform: translate(-0.7rem, -1.5rem);
     }
     .blog .players:hover .david{
         transform: translate(0.5rem, 0);
