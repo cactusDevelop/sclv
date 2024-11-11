@@ -494,7 +494,7 @@ body.dark .dark-light img.moon{
 }
 .blog .players .alex{
     bottom: 25%;
-    right: 40%;
+    right: 35%;
     z-index: 1;
 }
 .blog .players .david{
@@ -503,7 +503,7 @@ body.dark .dark-light img.moon{
     z-index: 2;
 }
 .blog .players:hover .alex{
-    transform: translate(-1.4rem, -1.3rem);
+    transform: translate(-1.2rem, -1.7rem);
     filter: grayscale(1) contrast(2);
 }
 .blog .players:hover .david{
@@ -582,7 +582,7 @@ body.dark .dark-light img.moon{
     }
     .blog .players .alex{
         bottom: 30%;
-        right: 0%;
+        right: 40%;
         z-index: 1;
     }
     .blog .players .david{
