@@ -6,7 +6,8 @@ const body = document.querySelector("body"),
       sidebarClose = document.querySelector(".sidebar-close"),
       imgGold = document.querySelector('.gold'),
       loadingText = document.querySelector('.loading-text'),
-      videoHero = document.querySelector('.hero-video');
+      videoHero = document.querySelector('.hero-video'),
+      alex = document.querySelector('.alex');
 
 let getMode = localStorage.getItem("mode");
 
