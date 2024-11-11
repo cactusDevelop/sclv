@@ -48,6 +48,7 @@ body.dark .waves .wave{
     --wave-width: 1280px;
     --players-pose-width: 30vw;
     --blog-height: 50vh;
+    --shop-height: 50vh;
 
     /*Golden Ratio*/
     --size0: 0.382rem;
@@ -450,10 +451,7 @@ body.dark .dark-light img.moon{
     }
 }
 
-/* MAIN PAGE */
-.main-page{
-    min-height: 100vh;
-}
+/* BLOG SECTION */
 .blog{
     height: var(--blog-height);
     display: flex;
@@ -467,14 +465,21 @@ body.dark .dark-light img.moon{
     max-width: 40vw;
 }
 .blog .blog-txt h2{
-    font: 2rem montserrat;
+    font: 2.5rem montserrat;
+    margin: 1rem;
+}
+.blog .blog-txt p{
+    font: 1rem arial;
 }
 .blog .players{
     width: var(--players-pose-width);
     height: var(--blog-height);
     position: relative;
     overflow: visible;
-    transition: all 0.8s ease-in-out;
+    transition: all 0.5s ease-in-out; /*Grayscale*/
+}
+.blog .players:hover{
+    filter: grayscale(1) contrast(3);
 }
 .blog .players img{
     position: absolute;
@@ -482,7 +487,7 @@ body.dark .dark-light img.moon{
     max-height: calc(0.8 * var(--blog-height));
     width: auto;
     height: auto;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out; /*Mouvement*/
 }
 .blog .players .stain{
     width: 20rem;
@@ -504,12 +509,35 @@ body.dark .dark-light img.moon{
 }
 .blog .players:hover .alex{
     transform: translate(-1.2rem, -1.7rem);
-    filter: grayscale(1) contrast(2);
 }
 .blog .players:hover .david{
     transform: translate(1rem, 0);
-    filter: grayscale(1) contrast(4);
 }
+/* SHOP SECTION */
+.shop{
+    height: var(--shop-height);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 10vw;
+    margin-block: 5rem;
+    background-color: #091d30;
+}
+.shop .jersey img{
+    max-width: var(--players-pose-width);
+    max-height: calc(0.8 * var(--blog-height));
+    width: auto;
+    height: auto;
+}
+
+/*TEST SECTION*/
+.test {
+    background-color: var(--contrast-color);
+    padding: 5%;
+}
+
+
 
 /* RESPONSIVENESS */
 @media (min-aspect-ratio: 16/9){
