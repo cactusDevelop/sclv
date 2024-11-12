@@ -28,6 +28,9 @@ body.dark {
 body.dark .waves .wave{
     background: url(assets/black-wave.png);
 }
+body.dark .blog .players .stain{
+    filter: invert(0);
+}
 
 /* GENERAL */
 :root{
@@ -151,22 +154,23 @@ nav .logo img{
     width: var(--size5);
     margin-right: 1rem;
 }
-nav ul{
+nav .menu{
+    margin-left: auto;
+}
+nav .menu ul{
     display: flex;
     align-items: center;
 }
-nav ul li{
+nav .menu ul li{
     list-style: none;
     margin: 0 var(--size0);
 }
-nav ul li a{
-    position: relative;
-    font-family: "montserrat";
-    font-size: var(--size2);
-    font-weight: 400;
+nav .menu ul li a{
+    font: 500 1rem montserrat;
     text-decoration: none;
     color: white;
     text-transform: uppercase;
+    letter-spacing: 1px;
     padding: var(--size1);
 }
 nav .menu img{
@@ -313,9 +317,6 @@ body.dark .dark-light img.moon{
     display: inline-block;
     z-index: 10;
     pointer-events: none;
-}
-.hero h1 .sparkles{
-    position: absolute;
 }
 .hero .hero-video{
     position: absolute;
@@ -465,11 +466,13 @@ body.dark .dark-light img.moon{
     max-width: 40vw;
 }
 .blog .blog-txt h2{
-    font: 2.5rem montserrat;
     margin: 1rem;
+    font: 600 2.5rem montserrat;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 .blog .blog-txt p{
-    font: 1rem arial;
+    font: 200 1.2rem arial;
 }
 .blog .players{
     width: var(--players-pose-width);
@@ -495,7 +498,9 @@ body.dark .dark-light img.moon{
     height: auto;
     bottom: 0;
     right: 2rem;
+    filter: invert(0.5);
     z-index: 0;
+    transition: all var(--color-transition) linear;
 }
 .blog .players .alex{
     bottom: 25%;
@@ -557,7 +562,7 @@ body.dark .dark-light img.moon{
         --header-height: 96vh;
         --wave-position: 102vh;
     }
-    .menu{
+    nav .menu{
         position: fixed;
         height: 100%;
         width: 20rem;

@@ -66,6 +66,18 @@ videoHero.addEventListener('canplay', () => {
 });
 
 
+// TEST AREA
+document.addEventListener("DOMContentLoaded", function () {
+    const sparkle = document.querySelector(".sparkle");
+
+    imgGold.addEventListener("click", function(){
+        sparkle.style.display = "block";
+        sparkle.addEventListener("animationend", function () {
+            sparkle.style.display = "none";
+        }, { once: true });
+    });
+});
+
 // const container = document.querySelector('.image-container');
 // const cloneCount = 5; // Nombre de clones
 // const cloneDuration = 2440; // Durée de l'animation du GIF en millisecondes (ajustez selon le GIF)
