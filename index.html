@@ -54,7 +54,7 @@ git pull origin main; git add .; git commit -m "SnapshotX"; git push -u origin m
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SCLV Official Website</title>
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -98,8 +98,8 @@ git pull origin main; git add .; git commit -m "SnapshotX"; git push -u origin m
         </nav>
 
         <div class="hero">
-            <video autoplay loop muted plays-inline class="hero-video"><source src="assets/embers.webm" type="video/webm"></video>
-
+            <video autoplay loop muted plays-inline src="assets/embers.webm" type="video/webm" class="hero-video" id="ember1"></video>
+            
             <div class="phoenix">
                 <img src="assets/left-wing.png" class="wings left-wing">
                 <img src="assets/orange_Ball.png" class="ball">
@@ -125,7 +125,7 @@ git pull origin main; git add .; git commit -m "SnapshotX"; git push -u origin m
     <section class="blog">
         <div class="blog-txt">
             <h2>Suivez nous</h2>
-            <p>On s'entraine <strong>40h</strong> par semaine pour donner des matchs compétitifs</p>
+            <p>On s'entraine <span class="glow-txt">40h</span> par semaine pour donner des matchs compétitifs</p>
         </div>
 
         <div class="players">
@@ -139,9 +139,18 @@ git pull origin main; git add .; git commit -m "SnapshotX"; git push -u origin m
         <div class="jersey">
             <img src="assets/jersey.png" alt="maillot de l'équipe">
         </div>
+        <div class="shop-txt">
+            <h2>Shop</h2>
+            <p>On vend</p>
+        </div>
     </section>
 
     <section class="test">
+        <!-- <div class="card">
+            <h3>Maillot de qualité</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel magna ac augue vulputate luctus. </p>
+        </div> -->
+
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vel magna ac augue vulputate luctus. Morbi vestibulum neque id vulputate dignissim. Duis a rutrum erat. Donec fermentum risus vel sapien efficitur auctor. Nam vel enim nisi. Fusce a eleifend erat, eu sollicitudin mauris. Nullam sit amet metus maximus, tempor tortor at, laoreet arcu. Etiam laoreet leo eu metus molestie pellentesque. Sed sodales diam quis lectus convallis dapibus. Praesent et dictum massa. Proin pharetra mauris vel lectus auctor, nec porttitor nunc congue.
             Sed ultrices dapibus nisl id elementum. Vivamus tempus, mi ut ultricies suscipit, metus nibh aliquam metus, vel rutrum dui lorem sed leo. Morbi erat nibh, dignissim ut neque at, venenatis interdum dolor. Etiam laoreet tellus mattis, condimentum diam vitae, tincidunt ligula. Praesent scelerisque, ante quis eleifend vehicula, est quam interdum tortor, in vestibulum ipsum ex eu neque. Vestibulum hendrerit tincidunt dapibus. Proin in congue turpis, at molestie lacus. Nam lectus metus, consequat sit amet libero id, fermentum fringilla lorem. Sed laoreet venenatis justo non viverra.

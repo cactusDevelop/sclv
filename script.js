@@ -63,46 +63,46 @@ imgGold.addEventListener('load', () => {
 videoHero.addEventListener('canplay', () => {
     videoHero.style.display = 'block';
     videoHero.style.opacity = '1';
-});
+  });
 
 
 // TEST AREA
-document.addEventListener("DOMContentLoaded", function () {
-    const sparkle = document.querySelector(".sparkle");
 
-    imgGold.addEventListener("click", function(){
-        sparkle.style.display = "block";
-        sparkle.addEventListener("animationend", function () {
-            sparkle.style.display = "none";
-        }, { once: true });
-    });
-});
 
+// Smooth hero vid transition
+//   videoHero.addEventListener('timeupdate', () => {
+//     const threshold = 0.5;
+//     if (videoHero.currentTime >= videoHero.duration - threshold) {
+//       videoHero.style.opacity = '0';
+//     }
+//     if (videoHero.currentTime < threshold) {
+//       videoHero.style.opacity = '1';
+//     }
+//   });
+
+
+// Sparkle effect on click
 // const container = document.querySelector('.image-container');
-// const cloneCount = 5; // Nombre de clones
-// const cloneDuration = 2440; // Durée de l'animation du GIF en millisecondes (ajustez selon le GIF)
+// const cloneCount = 5;
+// const cloneDuration = 2440;
 
-// // Fonction pour créer un clone avec des propriétés aléatoires
 // function createClone() {
 //     const clone = document.createElement('img');
-//     clone.src = `assets/sparkles.gif?${new Date().getTime()}`; // Ajout d'un timestamp pour chaque clone
+//     clone.src = 'assets/sparkles.gif?${new Date().getTime()}';
 //     clone.classList.add('gif-clone');
 
-//     // Taille et position aléatoires dans les limites du conteneur
-//     const randomSize = Math.random() * 50 + 20; // Taille entre 20px et 70px
-//     const randomTop = Math.random() * (container.clientHeight - randomSize); // Position verticale
-//     const randomLeft = Math.random() * (container.clientWidth - randomSize); // Position horizontale
+//     const randomSize = Math.random() * 50 + 20;
+//     const randomTop = Math.random() * (container.clientHeight - randomSize);
+//     const randomLeft = Math.random() * (container.clientWidth - randomSize);
 //     clone.style.width = `${randomSize}px`;
 //     clone.style.top = `${randomTop}px`;
 //     clone.style.left = `${randomLeft}px`;
 
-//     // Délai d’apparition aléatoire pour différer les animations
 //     const randomDelay = Math.random() * cloneDuration;
 //     setTimeout(() => {
 //         container.appendChild(clone);
 //     }, randomDelay);
 
-//     // Suppression du clone après une boucle complète d'animation
 //     setTimeout(() => {
 //         if (container.contains(clone)) {
 //             container.removeChild(clone);
@@ -110,12 +110,10 @@ document.addEventListener("DOMContentLoaded", function () {
 //     }, cloneDuration + randomDelay);
 // }
 
-// // Génère tous les clones dès le départ
 // for (let i = 0; i < cloneCount; i++) {
 //     createClone();
 // }
 
-// // Régénération continue des clones après leur disparition
 // setInterval(() => {
 //     for (let i = 0; i < cloneCount; i++) {
 //         createClone();
