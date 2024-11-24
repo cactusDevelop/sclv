@@ -579,14 +579,14 @@ body.dark .dark-light img.moon{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    padding: 1rem 8vw;
+    justify-content: space-evenly;
+    padding-block: 1rem;
     background-color: #091d30;
+    overflow: hidden;
 }
 .shop .shop-txt{
     width: 15rem;
     max-width: 40vw;
-    margin-left: auto;
 }
 .shop .shop-txt a{
     font: 600 2.5rem montserrat;
@@ -602,7 +602,6 @@ body.dark .dark-light img.moon{
 .shop .jersey{
     width: auto;
     height: auto;
-    margin: auto 6rem;
     background-color: #292a30;
     border-radius: 1rem;
     position: relative;
@@ -616,10 +615,10 @@ body.dark .dark-light img.moon{
     top: 50%;
     left: 50%;
     translate: -50% -50%;
-    z-index: -1;
+    z-index: -2;
     padding: 3px;
-    border-radius: 10px;
-    background-image: conic-gradient(from var(--angle), transparent 70%, blue);
+    border-radius: 1rem;
+    background-image: conic-gradient(from var(--angle), transparent 70%, var(--main-color));
     animation: 2s spin linear infinite;
 }
 .shop .jersey:hover{
@@ -650,7 +649,7 @@ body.dark .dark-light img.moon{
 .list{
     display: block;
     border: 1px solid rgb(97, 97, 97);
-    margin: 2rem;
+    margin: 3vw;
     width: 30vw;
     max-width: 10.5rem;
     transition: 0.5s;
