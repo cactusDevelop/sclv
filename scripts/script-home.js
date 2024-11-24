@@ -2,7 +2,7 @@ const imgGold = document.querySelector('.gold'),
       loadingText = document.querySelector('.loading-text'),
       videoHero = document.querySelector('.hero-video');
 
-// LOADING
+// GOLD LOADING
 imgGold.addEventListener('load', () => {
     loadingText.style.opacity = '0';
     loadingText.style.display = 'none';
@@ -15,7 +15,6 @@ videoHero.addEventListener('canplay', () => {
 
 
 // TEST AREA
-
 
 // body.addEventListener('click', function(event){
 //     let spark = document.createElement('div');
