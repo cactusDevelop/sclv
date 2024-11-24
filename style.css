@@ -12,6 +12,19 @@
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: "optimus";
+    src: url('fonts/OptimusPrinceps.ttf');
+    font-display: swap;
+    font-weight: normal;
+    font-style: normal;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
 
 
 /* DARK MODE */
@@ -19,6 +32,7 @@ body.dark {
     background-color: var(--bg-color);
 
     --main-color: #FF6423;
+    --second-color: #094074;
     --contrast-color: #242526;
     --bg-color: #1a1f1b;
     --contrast-color: #eee;
@@ -36,7 +50,7 @@ body.dark .blog .players .stain{
 :root{
     /*Colors*/
     --main-color: #FF6423;
-    --second-color: #094074;
+    --second-color: #135797;
     --bg-color: white;
     --contrast-color: #111;
     --search-text: #010718;
@@ -92,18 +106,17 @@ img{
     display: block;
     max-width: 100%;
 }
-.glow-txt{
+/* .glow-txt{
     transition: all var(--hover-transition) linear;
 }
 .glow-txt:hover{
     -webkit-text-stroke: 1px white;
     color: var(--contrast-color);
-}
+} */
 
 /* HEADER */
 header{
     width: auto;
-    height: var(--header-height);
     margin-bottom: 3rem;
     background-image: linear-gradient(rgba(9,0,77,0.5),rgba(9,0,77,0.3));
     background-size: cover;
@@ -118,7 +131,7 @@ header{
     overflow: hidden;
 }
 header.sticky{
-    padding-top: 0.5rem;
+    padding-top: calc(0.7 * var(--nav-height));
 }
 header.sticky nav{
     background-color: var(--second-color);
@@ -320,6 +333,39 @@ body.dark .dark-light img.moon{
     z-index: 10;
     pointer-events: none;
 }
+.spark{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+.spark span{
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    pointer-events: none;
+    transform-origin: bottom;
+    overflow: hidden;
+    filter: drop-shadow(0 0 20px #0f0) drop-shadow(0 0 40px #0f0);
+}
+.spark span::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #0f0;
+    animation: sparkling 0.4s ease-in-out forwards;
+    z-index: 100;
+}
+@keyframes sparkling{
+    from{
+        transform: translateY(100%);
+    }
+    to{
+        transform: translateY(-100%);
+    }
+}
 .hero .hero-video{
     position: absolute;
     right: 0;
@@ -381,9 +427,9 @@ body.dark .dark-light img.moon{
 .waves{
     position: absolute;
     width: 100%;
-    height: var(--wave-position);
+    height: calc(var(--wave-height) + 1.5rem);
     overflow: hidden;
-    top: 0;
+    top: calc(100vh - var(--wave-height));
     z-index: 5;
 }
 .waves .wave{
@@ -463,7 +509,7 @@ body.dark .dark-light img.moon{
     align-items: center;
     justify-content: space-between;
     padding-inline: 10vw;
-    margin-top: 5rem;
+    margin-top: 8rem;
     padding-bottom: 5rem;
 }
 .blog .blog-txt{
@@ -476,7 +522,10 @@ body.dark .dark-light img.moon{
     text-transform: uppercase;
 }
 .blog .blog-txt p{
-    font: 200 1.2rem arial;
+    font: 200 1.2rem optimus;
+}
+.blog .blog-txt p span{
+    font: 600 1.2rem optimus;
 }
 .blog .players{
     width: var(--players-pose-width);
@@ -484,6 +533,7 @@ body.dark .dark-light img.moon{
     position: relative;
     overflow: visible;
     transition: all var(--players-grayscale-tr) ease-in-out;
+    z-index: 11;
 }
 .blog .players:hover{
     filter: grayscale(1) contrast(3);
@@ -525,34 +575,101 @@ body.dark .dark-light img.moon{
 
 /* SHOP SECTION */
 .shop{
-    height: var(--shop-height);
+    min-height: var(--shop-height);
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    padding: 15vh 10vw;
+    justify-content: center;
+    padding: 1rem 8vw;
     background-color: #091d30;
 }
 .shop .shop-txt{
     width: 15rem;
     max-width: 40vw;
+    margin-left: auto;
 }
-.shop .shop-txt h2{
+.shop .shop-txt a{
     font: 600 2.5rem montserrat;
     letter-spacing: 2px;
     text-transform: uppercase;
+    text-decoration: none;
     color: white;
 }
 .shop .shop-txt p{
     font: 200 1.2rem arial;
     color: white;
 }
+.shop .jersey{
+    width: auto;
+    height: auto;
+    margin: auto 6rem;
+    background-color: #292a30;
+    border-radius: 1rem;
+    position: relative;
+    z-index: 2;
+}
+.shop .jersey:hover::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 10px;
+    background-image: conic-gradient(from var(--angle), transparent 70%, blue);
+    animation: 2s spin linear infinite;
+}
+.shop .jersey:hover{
+    background-color: var(--contrast-color);
+}
 .shop .jersey img{
     max-width: var(--players-pose-width);
     max-height: calc(0.8 * var(--blog-height));
-    width: auto;
-    height: auto;
 }
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+
+/* GALLERY */
+.gallery{
+    padding: 2rem 2.5rem;
+    background-image: linear-gradient(rgba(255, 100, 35, 0.7), rgba(19, 87, 151, 0.7)),url("assets/volley-bg.jpg");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.list{
+    display: block;
+    border: 1px solid rgb(97, 97, 97);
+    margin: 2rem;
+    width: 30vw;
+    max-width: 10.5rem;
+    transition: 0.5s;
+}
+.list:hover{
+    border: 1px solid rgb(238, 238, 238);
+}
+.list .description{
+    padding: 10px;
+    text-align: center;
+    background-color: var(--main-color);
+    color: white;
+}
+.list img{
+    width: 100%;
+    height: 18.75rem;
+    object-fit: cover;
+}
+
 
 /* TEST AREA */
 .test {
@@ -582,6 +699,110 @@ body.dark .dark-light img.moon{
     z-index: -1;
     padding: 3px;
 } */
+
+
+
+/* GALLERY.HTML */
+.gal-sec{
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+.gal-photos{
+    padding: 1rem;
+}
+.gal-haikyuu p{
+    padding-inline: 3rem;
+    font: 100 1rem arial;
+}
+.gal-h3{
+    margin: 0 0 1.5rem 2rem;
+    font: 200 2.3rem montserrat;
+    letter-spacing: 1px;
+}
+.box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.box .photo-col{
+    display: flex;
+    flex-direction: column;
+    width: 32.5%;
+}
+.box .photo-col img{
+    width: 100%;
+    padding-bottom: 1rem;
+    border-radius: 5px;
+}
+.photos{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.photo-row{
+    height: auto;
+    margin-block: 2rem;
+    padding-inline: 10vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+}
+.photo-row .photo{
+    transition: 0.5s;
+    filter: brightness(0.5);
+}
+.photo-row .photo:hover{
+    filter: brightness(1);
+    transform: translateZ(200px);
+}
+.photo-row .photo:hover +*{ /* +* means an element on the right */
+    filter: brightness(0.6);
+    transform: translateZ(150px) rotateY(40deg);
+}
+.photo-row .photo:has(+*:hover){ /* has(+*) means an element on the left */
+    filter: brightness(0.6);
+    transform: translateZ(150px) rotateY(-40deg);
+}
+.photo-row .photo:hover +*+*{
+    filter: brightness(0.4);
+    transform: translateZ(70px) rotateY(20deg);
+}
+.photo-row .photo:has(+*+*:hover){
+    filter: brightness(0.4);
+    transform: translateZ(70px) rotateY(-20deg);
+}
+.photo-row .photo:hover +*+*+*{
+    filter: brightness(0.2);
+    transform: translateZ(30px) rotateY(10deg);
+}
+.photo-row .photo:has(+*+*+*:hover){
+    filter: brightness(0.2);
+    transform: translateZ(30px) rotateY(-10deg);
+}
+
+.vid-player{
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+.vid-player .high-vid{
+    width: 30vw;
+    aspect-ratio: 9/16;
+}
+.vid-player .vid-controls{
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    padding: 1rem 0.7rem;
+}
+.vid-player .vid-controls button{
+    color: black;
+}
 
 
 
@@ -669,6 +890,14 @@ body.dark .dark-light img.moon{
     }
     .blog .players:hover .david{
         transform: translate(0.5rem, 0);
+    }
+
+    /*Gallery.html*/
+    .box{
+        flex-direction: column;
+    }
+    .box .photo-col{
+        width: 100%;
     }
 }
 
